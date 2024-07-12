@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+       <link rel="preconnect" href="https://montserrat-alternates-semibold-italic s.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+</head>
+<style>
+    body {
+    background-color: #f2f2f2;
+    font-family: Arial, sans-serif;
+    
+  }
+  .shadow-inset-bl {
+        -webkit-animation: shadow-inset-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: shadow-inset-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes shadow-inset-bl {
+        0% {
+          -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+                  box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+        }
+      }
+      @keyframes shadow-inset-bl {
+        0% {
+          -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+                  box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+        }
+      }
+      .shadow-inset-bl {
+        -webkit-animation: shadow-inset-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+                animation: shadow-inset-bl 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+    @-webkit-keyframes shadow-inset-bl {
+        0% {
+          -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+                  box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+        }
+      }
+      @keyframes shadow-inset-bl {
+        0% {
+          -webkit-box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+                  box-shadow: inset 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+        100% {
+          -webkit-box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+                  box-shadow: inset 6px -6px 14px -6px rgba(0, 0, 0, 0.5);
+        }
+      }
+    nav{
+        
+       
+        margin-left: 1rem;
+        margin-right: 1rem;
+        height: 6rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        border-radius: 1rem;
+    }
+    
+    .navbar-brand{
+        padding-left: 1rem;
+        font-size: 4rem;
+        
+        color: black;
+    }
+    .nav-link{
+        font-size: 1.8rem;
+        color: black;
+        margin-right: 1rem;
+        
+    }
+    .hvr-float-shadow {
+        display: inline-block;
+        vertical-align: middle;
+        -webkit-transform: perspective(1px) translateZ(0);
+        transform: perspective(1px) translateZ(0);
+        box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+        position: relative;
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+      }
+      .hvr-float-shadow:before {
+        pointer-events: none;
+        position: absolute;
+        z-index: -1;
+        content: '';
+        top: 100%;
+        left: 5%;
+        height: 10px;
+        width: 90%;
+        opacity: 0;
+        background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+        /* W3C */
+        -webkit-transition-duration: 0.3s;
+        transition-duration: 0.3s;
+        -webkit-transition-property: transform, opacity;
+        transition-property: transform, opacity;
+      }
+      .hvr-float-shadow:hover, .hvr-float-shadow:focus, .hvr-float-shadow:active {
+        -webkit-transform: translateY(-5px);
+        transform: translateY(-5px);
+        
+      }
+      .hvr-float-shadow:hover:before, .hvr-float-shadow:focus:before, .hvr-float-shadow:active:before {
+        opacity: 1;
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+        }
+    
+      
+    .merienda-a {
+        font-family: "Merienda", cursive;
+        font-optical-sizing: auto;
+        font-weight: 100;
+        font-style: normal;
+      }
+      
+      .tangerine-bold {
+        font-family: "Tangerine", cursive;
+        font-weight: 900;
+        font-style: normal;
+      }
+  .bounce-in-top {
+    -webkit-animation: bounce-in-top 2s ease-out both;
+            animation: bounce-in-top 2s ease-out both;
+  }
+  @-webkit-keyframes bounce-in-top {
+    0% {
+      -webkit-transform: translateY(-500px);
+              transform: translateY(-500px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: translateY(-65px);
+              transform: translateY(-65px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: translateY(-28px);
+              transform: translateY(-28px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    90% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  @keyframes bounce-in-top {
+    0% {
+      -webkit-transform: translateY(-500px);
+              transform: translateY(-500px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+      opacity: 0;
+    }
+    38% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+      opacity: 1;
+    }
+    55% {
+      -webkit-transform: translateY(-65px);
+              transform: translateY(-65px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    72% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    81% {
+      -webkit-transform: translateY(-28px);
+              transform: translateY(-28px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    90% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+    95% {
+      -webkit-transform: translateY(-8px);
+              transform: translateY(-8px);
+      -webkit-animation-timing-function: ease-in;
+              animation-timing-function: ease-in;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+              transform: translateY(0);
+      -webkit-animation-timing-function: ease-out;
+              animation-timing-function: ease-out;
+    }
+  }
+  
+  .container {
+       
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 50px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+  }
+  
+  .form-control {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: none;
+    background-color: #f2f2f2;
+    color: #333;
+  }
+  
+  select.form-control {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+  }
+  .btn-primary {
+    display: block;
+    margin-top: 30px;
+    margin-left: 250px;
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0069d9;
+  }
+  .images {
+    display: flex;
+    /* height:auto; */
+    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+  }
+  
+  .images img {
+    margin: 0 10px;
+    height: 150px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+</style>
+<body>
+  <form action="{{ url_for('predict') }}" method="post">
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-inset-bl">
+    <div class="navbar navbar-collapse">
+      <a class="navbar-brand tangerine-bold" href="#">EarlySense</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+            <a class="nav-link merienda-a hvr-float-shadow " href="{{ url_for('index') }}">Home</a>
+        </li>
+
+        
+        <li class="nav-item">
+            <a class="nav-link merienda-a hvr-float-shadow " href="">Hospitals</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+</nav>
+  <div class="container bounce-in-top ">
+    <h1>Cardiovascular (Heart) Disease</h1>
+    
+    <form action="/predict" method="post">
+      <input type="hidden" name="predict_type" value="diabetes">
+      <div class="form-group">
+        <label for="input-age">Age (ವಯಸ್ಸು)</label>
+        <input type="number" class="form-control" style="width: 100%;" id="input-age" name="age" placeholder="Enter your age" >
+
+      </div>
+      <div class="form-group">
+        <label for="Gender">Gender (ಲಿಂಗ)
+        </label>
+        <select class="form-control" style="width: 100%;" id="input-gender" name="gender">
+          <option value="1">Female (ಸ್ತ್ರೀ)</option>
+          <option value="2">Male (ಪುರುಷ)</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="input-height">Height (feet and inches)/
+          ಎತ್ತರ (ಅಡಿ ಮತ್ತು ಇಂಚುಗಳು):</label>
+                <input type="" id="input-height" placeholder="Example format: For 5 feet 3 inches, enter 5.3" style="width: 100%;" name="height" min="0" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="input-weight">Weight (kg)/ತೂಕ (ಕೆಜಿ):</label>
+                <input type="number"  id="input-weight" style="width: 100%;" name="weight" min="0" required>
+            </div>
+            <hr>
+  
+            <div class="form-group">
+              <div id="tBP">
+                 <p> <b>Please go through the following if you are unaware of your blood pressure. Otherwise, scroll down to enter the next symptom.</b> <br> <hr> <b>Diastolic pressure is always lower than systolic pressure.</b><br> <hr><b style="color: blue;">What range of BP should you enter? (Systolic/Diabolic)</b> <br> 
+                <span style="color: red;">High: 180/120 mmHg or higher.</span> Symptoms include: 
+                Sweating, Sleeping problems, Anxiety, Headaches, Vision problems, Nose bleeding, Trouble breathing, Fits, and Black-outs etc <a href="https://www.who.int/news-room/fact-sheets/detail/hypertension#:~:text=Checking%20your%20blood%20pressure%20is,severe%20headaches">Click here for more info</a> <br>
+                <span style="color: green;">Normal: 120/80 mmHg.</span> They usually have minimum or no symptoms mentioned above and below. <br>
+              <span style="color: red;">Low: Lower than 90/60 mmHg.</span> Symptoms include: Dizziness, Nausea, Lightheadedness, Blurry vision, Confusion, Fainting, Sleepiness, and Weakness. <a href="https://www.ncbi.nlm.nih.gov/books/NBK499961/#:~:text=Hypotension%20is%20a%20decrease%20in,because%20it%20is%20typically%20asymptomatic.">Click here for more info</a></p> 
+            </div>
+            <button id="translateBtn">View in Kannada</button>
+            <button id="translateToEnglishBtn">View in English</button>
+              <script>
+                const kannada = document.getElementById('translateBtn');
+                const english = document.getElementById('translateToEnglishBtn');
+                const original= document.getElementById('tBP');
+                const originalContent = document.getElementById('tBP').innerHTML;
+                function translateToKannada() {
+                    var translatedContent = '<p><b>ನಿಮ್ಮ ರಕ್ತದ ಒತ್ತಡವನ್ನು ತಿಳಿಯದಿರುವ ವಿಷಯದಲ್ಲಿ ಈ ವಿಷಯವನ್ನು ಓದಿರಿ. </b><br><hr>' +
+                       '<b> ಡಿಯಾಸ್ಟೋಲಿಕ್ ಒತ್ತಡವು ಸದಾ ಸಿಸ್ಟೊಲಿಕ್ ಒತ್ತಡದಿಂದ ಕಡಿಮೆಯಾಗಿದೆ.</b> <br><hr>' +
+                        '<b style="color: blue;">ಏನು ಬೀಪಿ ಶ್ರೇಣಿಯನ್ನು ನಮೂದಿಸಬೇಕು? (ಸಿಸ್ಟೊಲಿಕ್ / ಡಾಯಾಬೋಲಿಕ್) </b><br>' +
+                        '<span style="color:red;">ಹೆಚ್ಚು: 180/120 mmHg ಅಥವಾ ಹೆಚ್ಚು.</span> ಲಕ್ಷಣಗಳು: ಬೆವರುವುದು, ನಿದ್ರಾಲಸತೆ, ಚಿಂತೆ, ತುಂಬಿದ ತಲೆ, ದೃಶ್ಯ ಸಮಸ್ಯೆಗಳು, ಮೂಗು ಬೀರಿಕೊಳ್ಳುವುದು, ಉಸಿರಾಟದ ಸಮಸ್ಯೆಗಳು, ಹಿಡಿತ, ಮತ್ತು ಕಪ್ಪು ಹೊಟ್ಟೆ ಇತ್ಯಾದಿ <a href="https://www.who.int/news-room/fact-sheets/detail/hypertension#:~:text=Checking%20your%20blood%20pressure%20is,severe%20headaches">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</a><br>' +
+                        '<span style="color:yellowgreen;">ಸಾಮಾನ್ಯ: 120/80 mmHg.</span> ಅವರು ಸಾಮಾನ್ಯವಾಗಿ ಮೇಲೆ ಮತ್ತು ಕೆಳಗೆ ತಿಳಿಸಲಾದ ಕನಿಷ್ಠ ಅಥವಾ ಯಾವುದೇ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಹೊಂದಿರುವುದಿಲ್ಲ.<br>' +
+                        '<span style="color:green;">ಕಡಿಮೆ: 90/60 mmHg ಕಡಿಮೆ.</span> ಲಕ್ಷಣಗಳು: ಅಸಮನವಾಗಿರುವುದು, ವಾಂತಿ, ತುಂಬಿಕೊಂಡಿರುವ ತೋಳು, ಮಂದನೋಟ, ಕಲಹ, ತಲೆಬಾಗುವುದು, ನಿದ್ರೆಹಳ್ಳಿ, ಮತ್ತು ದುರ್ಬಲತೆ.<a href="https://www.ncbi.nlm.nih.gov/books/NBK499961/#:~:text=Hypotension%20is%20a%20decrease%20in,because%20it%20is%20typically%20asymptomatic.">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ</a></p>';
+                         original.innerHTML= translatedContent;
+                }
+             
+                    function translateToEnglish() {
+                     original.innerHTML = originalContent;
+                    }
+
+                kannada.addEventListener('click', translateToKannada);
+                english.addEventListener('click', translateToEnglish);
+                </script>
+                <hr>
+              
+                <label for="ap_hi">Systolic Blood Pressure (mmHg) (ಸಿಸ್ಟೊಲಿಕ್ ರಕ್ತದ ಒತ್ತಡವನ್ನು,ಬೀಪಿ):</label>
+                <input type="number" id="ap_hi" style="width: 100%;" name="ap_hi" min="0" required>
+            </div>
+  
+            <div class="form-group">
+                <label for="ap_lo">Diastolic Blood Pressure (mmHg) (ಡಿಯಾಸ್ಟೋಲಿಕ್ ರಕ್ತದ ಒತ್ತಡವನ್ನು,ಬೀಪಿ):</label>
+                <input type="number" id="ap_lo" style="width: 100%;" name="ap_lo" min="0" required>
+            </div>
+            <hr>
+            <div class="form-group">
+                 <div id="tChol">
+                 <p> <b>To enter the next symptom, please read the below. </b> <hr>
+                  <b style="color: blue;">What option should you choose for cholesterol?</b> <br>
+                  <span style="color: red;">High (240 mg/dL): </span> Symptoms include: Chest pain or discomfort (angina) – especially during physical activity, Shortness of breath, Pain in the neck, jaw, upper abdomen, or back, Swelling or pain in the abdomen,numbness of the face, arm, or leg, especially on one side of the body etc <a href="https://www.nhs.uk/conditions/high-cholesterol/">For more info, click here.</a> <br>
+                <span style="color: yellowgreen;">Borderline High (200 to 239 mg/dL):</span> The above symptoms may occur very rarely. <br> <span style="color: green;">Normal (less than 200 mg/dL):</span> No such above mentioned symptoms. </p></div>
+                <button id="translateBtn1">View in Kannada</button>
+                <button id="translateToEnglishBtn1">View in English</button> <hr>
+                <script>
+                  const kan = document.getElementById('translateBtn1');
+                  const eng = document.getElementById('translateToEnglishBtn1');
+                  const orig = document.getElementById('tChol');
+                  const origContent = document.getElementById('tChol').innerHTML;
+              
+                  function translateToKan() {
+                      const translated = `<p> <b>ಮುಂದಿನ ರೋಗಲಕ್ಷಣವನ್ನು ನಮೂದಿಸಲು, ದಯವಿಟ್ಟು ಕೆಳಗಿನದನ್ನು ಓದಿ. </b> <hr>
+                          <b style="color: blue;">ಕೊಲೆಸ್ಟ್ರಾಲ್ಗಾಗಿ (ಕೊಬ್ಬು) ನೀವು ಯಾವ ಆಯ್ಕೆಯನ್ನು ಆರಿಸಬೇಕು?</b> <br>
+                          <span style="color: red;">ಹೆಚ್ಚು (240 mg/dL): </span> ರೋಗಲಕ್ಷಣಗಳು ಸೇರಿವೆ: ಎದೆ ನೋವು ಅಥವಾ ಅಸ್ವಸ್ಥತೆ (ಆಂಜಿನಾ) - ವಿಶೇಷವಾಗಿ ದೈಹಿಕ ಚಟುವಟಿಕೆಯ ಸಮಯದಲ್ಲಿ, ಉಸಿರಾಟದ ತೊಂದರೆ, ಕುತ್ತಿಗೆ ನೋವು, ದವಡೆ, ಹೊಟ್ಟೆಯ ಮೇಲ್ಭಾಗ, ಅಥವಾ ಬೆನ್ನು, ಹೊಟ್ಟೆಯಲ್ಲಿ ಊತ ಅಥವಾ ನೋವು, ಮುಖ, ತೋಳು ಅಥವಾ ಕಾಲಿನ ಮರಗಟ್ಟುವಿಕೆ, ವಿಶೇಷವಾಗಿ ದೇಹದ ಒಂದು ಬದಿಯಲ್ಲಿ ಇತ್ಯಾದಿ <a href="https://www.nhs.uk/conditions/high-cholesterol/">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ.</a> <br>
+                          <span style="color: yellowgreen;">ಹೆಚ್ಚಿನ ಗಡಿರೇಖೆ (200 ರಿಂದ 239 mg/dL):</span> ಮೇಲಿನ ರೋಗಲಕ್ಷಣಗಳು ಬಹಳ ವಿರಳವಾಗಿ ಕಂಡುಬರಬಹುದು. <br> 
+                          <span style="color: green;">ಸಾಮಾನ್ಯ (200 mg/dL ಗಿಂತ ಕಡಿಮೆ):</span>ಮೇಲೆ ತಿಳಿಸಿದ ಯಾವುದೇ ರೋಗಲಕ್ಷಣಗಳಿಲ್ಲ.</p><hr>`;
+                      orig.innerHTML = translated;
+                  }
+              
+                  function translateToEng() {     
+                      orig.innerHTML = origContent;
+                  }
+              
+                  kan.addEventListener('click', translateToKan);
+                  eng.addEventListener('click', translateToEng);       
+              </script>
+              
+                <label for="cholesterol">Cholesterol (ಕೊಬ್ಬು):</label>
+                <select id="cholesterol" style="width: 100%;padding: 5px;" name="cholesterol">
+                    <option value="1">Normal (ಸಾಮಾನ್ಯ)</option>
+                    <option value="2">Borderline High (ಹೆಚ್ಚಿನ ಗಡಿರೇಖೆ)</option>
+                    <option value="3">High (ಹೆಚ್ಚು)</option>
+                </select>
+            </div>
+  
+            <div class="form-group">
+              <div id="tGlu"><p><b>Please read below to proceed further.</b> <hr> <b style="color: blue;">What option should you choose for Glucose (Diabetes)?</b> <hr> <span style="color: red;">Diabetic (126 mg/dL (7 mmol/L) or higher): </span> <a href="google.com">Please go here to check whether you are diabetic or not. Or whether you are prone to diabetes or not.</a> <br><span style="color: yellowgreen;">Pre-Diabetic (100 to 125 mg/dL): </span>Subtle Symptoms include: Increased thirst, Frequent urination, Increased hunger, Fatigue, Blurred vision etc <a href="https://www.manipaltrutest.com/blogs/prediabetes-symptoms-and-treatment">For more info, click here.</a> <br>
+                <span style="color: green;"> Normal (Non-Diabetic, less than 100 mg/dL):</span> You should not have any symptoms mentioned above. 
+              </p></div>
+              <button id="translateBtn2">View in Kannada</button>
+                <button id="translateToEnglishBtn2">View in English</button> <hr>
+                <script>
+                  const k = document.getElementById('translateBtn2');
+                  const e = document.getElementById('translateToEnglishBtn2');
+                  const o = document.getElementById('tGlu');
+                  const oContent = document.getElementById('tGlu').innerHTML;
+              
+                  function translateToK() {
+                    const translatedK = `<p><b>ಮುಂದುವರಿಯಲು ದಯವಿಟ್ಟು ಕೆಳಗೆ ಓದಿ.</b> <hr> <b style="color: blue;">ಗ್ಲೂಕೋಸ್ (ಮಧುಮೇಹ) ಗಾಗಿ ನೀವು ಯಾವ ಆಯ್ಕೆಯನ್ನು ಆರಿಸಬೇಕು?</b> <hr> <span style="color: red;">
+ಮಧುಮೇಹಿ (126 mg/dL (7 mmol/L) ಅಥವಾ ಹೆಚ್ಚಿನದು): </span> <a href="google.com">ನೀವು ಮಧುಮೇಹಿಯೇ ಅಥವಾ ಇಲ್ಲವೇ ಎಂಬುದನ್ನು ಪರಿಶೀಲಿಸಲು ದಯವಿಟ್ಟು ಇಲ್ಲಿಗೆ ಹೋಗಿ. ಅಥವಾ ನೀವು ಮಧುಮೇಹಕ್ಕೆ ಗುರಿಯಾಗುತ್ತೀರೋ ಇಲ್ಲವೋ.</a> <br><span style="color: yellowgreen;">ಪೂರ್ವ ಮಧುಮೇಹ (ಪ್ರಿ-ಡಯಾಬಿಟಿಕ್)(100 ರಿಂದ 125 mg/dL): </span>ಸೂಕ್ಷ್ಮ ಲಕ್ಷಣಗಳು ಸೇರಿವೆ: ಹೆಚ್ಚಿದ ಬಾಯಾರಿಕೆ , ಪದೇ ಪದೇ ಮೂತ್ರ ವಿಸರ್ಜನೆ, ಹೆಚ್ಚಿದ ಹಸಿವು, ಆಯಾಸ, ದೃಷ್ಟಿ ಮಂದವಾಗುವುದು ಇತ್ಯಾದಿ <a href="https://www.manipaltrutest.com/blogs/prediabetes-symptoms-and-treatment">ಹೆಚ್ಚಿನ ಮಾಹಿತಿಗಾಗಿ, ಇಲ್ಲಿ ಕ್ಲಿಕ್ ಮಾಡಿ.</a> <br>
+<span style="color: green;"> ಸಾಮಾನ್ಯ (ಮಧುಮೇಹವಲ್ಲದ, 100 mg/dL ಗಿಂತ ಕಡಿಮೆ):</span> ನೀವು ಮೇಲೆ ತಿಳಿಸಿದ ಯಾವುದೇ ರೋಗಲಕ್ಷಣಗಳನ್ನು ಹೊಂದಿರಬಾರದು. <hr></p>`;
+o.innerHTML = translatedK;
+
+                  }
+              
+                  function translateToE() {     
+                      o.innerHTML = oContent;
+                  }
+              
+                  k.addEventListener('click', translateToK);
+                  e.addEventListener('click', translateToE);       
+              </script>
+                <label for="gluc">Glucose (Diabetes, ಮಧುಮೇಹ) :</label>
+                <select id="gluc" style="width: 100%; padding: 5px;" name="gluc">
+                    <option value="1">Normal (ಸಾಮಾನ್ಯ/ಮಧುಮೇಹವಲ್ಲದ)</option>
+                    <option value="2">Pre-Diabetic (ಪೂರ್ವ ಮಧುಮೇಹ/ಪ್ರಿ-ಡಯಾಬಿಟಿಕ್)</option>
+                    <option value="3">Diabetic (ಮಧುಮೇಹಿ/ಡಯಾಬಿಟಿಕ್)</option>
+                </select>
+            </div>
+  
+            <div class="form-group row">
+              <label for="smoke" class="col-sm-4 col-form-label">Smoker (ಧೂಮಪಾನಿ):</label>
+              <div class="col-sm-8">
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="smoke" name="smoke">
+                      <!-- <label class="form-check-label" for="smoke">Yes</label> -->
+                  </div>
+              </div>
+          </div>
+          
+          <div class="form-group row">
+              <label for="alco" class="col-sm-4 col-form-label">Alcohol Consumer (ಮದ್ಯ ಗ್ರಾಹಕ):</label>
+              <div class="col-sm-8">
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="alco" name="alco">
+                      <!-- <label class="form-check-label" for="alco">Yes</label> -->
+                  </div>
+              </div>
+          </div>
+          
+          <div class="form-group row">
+              <label for="active" class="col-sm-4 col-form-label">Active Lifestyle (ದೈಹಿಕ ಚಟುವಟಿಕೆ):</label>
+              <div class="col-sm-8">
+                  <div class="form-check">
+                      <input type="checkbox" class="form-check-input" id="active" name="active">
+                      <!-- <label class="form-check-label" for="active">Yes</label> -->
+                  </div>
+              </div>
+          </div>
+          
+  
+     
+      <button type="submit" class="btn btn-primary">Predict</button>
+      
+    </form>
+    <div class="images">
+        <img src="static\diabt.jpg" alt="Diabetes">
+        <img src="static\diabt2.jpg" alt="Diabetes">
+        <img src="static\diabt3.jpg" alt="Diabetes">
+      </div>
+  </form>
+  </div>
+
+{{ text_prediction }}
+</body>
+</html>

@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Prediction </title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+       <link rel="preconnect" href="https://montserrat-alternates-semibold-italic s.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Tangerine:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="static\style2.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark shadow-inset-bl">
+    <div class="navbar navbar-collapse">
+      <a class="navbar-brand tangerine-bold" href="#">EarlySense</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul class="navbar-nav ms-auto ">
+        <li class="nav-item">
+            <a class="nav-link merienda-a hvr-float-shadow " href="{{ url_for('home') }}">Home</a>
+        </li>
+
+        
+        <li class="nav-item">
+            <a class="nav-link merienda-a hvr-float-shadow " href="">Hospitals</a>
+        </li>
+    </ul>
+</div>
+</div>
+
+</nav>
+  <div class="container bounce-in-top">
+    <h1>Mental Health Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="post">
+      <input type="hidden" name="predict_type" value="mental_health">
+      <div class="form-group">
+        <label for="input1">Sadness / ದುಃಖ        </label>
+        <select class="form-control" name="Sadness" id="input1">
+          <option>Seldom </option>
+          <option>Most-Often</option>
+          <option>Sometimes </option>
+          <option>Usually </option>
+        </select>
+    </div>
+<div class="form-group">
+<label for="input2">Euphoric (a feeling of great happiness and excitement) / ಸಂತೋಷ ಮತ್ತು ಉತ್ಸಾಹದ ಭಾವನೆ</label>
+<select class="form-control" id="input2" name="Euphoric">
+    <option>Seldom </option>
+    <option>Most-Often</option>
+    <option>Sometimes </option>
+    <option>Usually </option>
+  </select>
+
+</div>
+<div class="form-group">
+<label for="input3">Exhausted (extremely tired) / ತೀರಾ  ಸುಸ್ತು</label>
+<select class="form-control" id="input3" name="Exhausted">
+  <option>Seldom </option>
+  <option>Most-Often</option>
+  <option>Sometimes </option>
+  <option>Usually </option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input4">Sleep Disorder / ನಿದ್ರೆಯ ಅಸ್ವಸ್ಥತೆ</label>
+<select class="form-control" id="input4" name="Sleep dissorder">
+  <option>Seldom </option>
+    <option>Most-Often</option>
+    <option>Sometimes </option>
+    <option>Usually </option>
+</select>
+</div>
+<div class="form-group">
+<label for="input5">Mood Swings / ಮನಸ್ಥಿತಿಯ ಏರು ಪೇರು</label>
+<select class="form-control" id="input5" name="Mood Swing">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input6">Suicidal Thoughts / ಆತ್ಮಹತ್ಯಾ ಆಲೋಚನೆಗಳು</label>
+<select class="form-control" id="input6" name="Suicidal thoughts">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input7">Anorexia (eating disorder) / ತಿನ್ನುವ ಕಾಯಿಲೆ</label>
+<select class="form-control" id="input7" name="Anorxia">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input8">Over explaining things</label>
+<select class="form-control" id="input8" name="Try-Explanation">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input9">Aggressive Response / ಆಕ್ರಮಣಕಾರಿ ಪ್ರತಿಕ್ರಿಯೆ</label>
+<select class="form-control" id="input9" name="Aggressive Response">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input10">Ignore & Move-On / ನಿರ್ಲಕ್ಷಿಸಿ ಮತ್ತು ಮುಂದುವರಿಯಿರಿ</label>
+<select class="form-control" id="input10" name="Ignore & Move-On">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input11">Nervous Break-down (stressful situation ) / ಮಾನಸಿಕ ಕುಸಿತ</label>
+<select class="form-control" id="input11" name="Nervous Break-down">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input12">Admit Mistakes / ತಪ್ಪುಗಳನ್ನು ಒಪ್ಪಿಕೊಳ್ಳುವುದು</label>
+<select class="form-control" id="input12" name="Admit Mistakes">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input13">Overthinking / ಅತಿಯಾದ ಚಿಂತನೆ</label>
+<select class="form-control" id="input13" name="Overthinking">
+    <option>YES</option>
+    <option>NO</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input14">Concentration / ಏಕಾಗ್ರತೆ</label>
+<select class="form-control" id="input14" name="Concentration">
+    <option>1 From 10</option>
+    <option>2 From 10</option>
+    <option>3 From 10</option>
+    <option>4 From 10</option>
+    <option>5 From 10</option>
+    <option>6 From 10</option>
+    <option>7 From 10</option>
+    <option>8 From 10</option>
+    <option>9 From 10</option>
+    <option>10 From 10</option>
+  </select>
+</div>
+<div class="form-group">
+<label for="input15">Optimisim (the feeling of being hopeful about the future or about the success of something in particular) / ಆಶಾವಾದ
+</label>
+<select class="form-control" id="input15" name="Optimisim">
+    <option>1 From 10</option>
+    <option>2 From 10</option>
+    <option>3 From 10</option>
+    <option>4 From 10</option>
+    <option>5 From 10</option>
+    <option>6 From 10</option>
+    <option>7 From 10</option>
+    <option>8 From 10</option>
+    <option>9 From 10</option>
+    <option>10 From 10</option>
+  </select>
+</div>
+<button type="submit" class="btn btn-primary">Predict</button>
+    
+    <div class="images">
+        <img src="static\anxiety.jpg" alt="mental Disorder">
+        <img src="static\mental.jpg" alt="mental Disorder">
+        <img src="static\mental-health.jpg" alt="mental Disorder">
+      </div>
+    </form>
+    {{ text_prediction }}
+  </div>
+</body>
+</html>
